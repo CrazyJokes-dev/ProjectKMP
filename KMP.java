@@ -85,7 +85,7 @@ public class KMP {
 	        
 	        String pat;
 	        
-	        do {
+	        do {  fdsfds
 	        try {
 	        	System.out.print("Please enter the file name: ");
 	        	fileName = input.nextLine();
