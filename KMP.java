@@ -1,8 +1,7 @@
 package cosc311.kmp;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
+import java.io.*;
+import java.util.*;
 
 public class KMP {
 		private static boolean repeat = false;
