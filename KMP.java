@@ -111,14 +111,12 @@ public class KMP {
 	        } else if(option.equalsIgnoreCase("user")) {
 	        	
 	        	//user input
-	            Scanner userInput = new Scanner(System.in);
+	            BufferedReader userInput = new BufferedReader(new InputStreamReader(System.in));
 	            Scanner userPattern = new Scanner(System.in);
 
 	            System.out.print("Please enter text that you would like to search: ");
-                    String textUserInput = " ";
-                    while(userInput.hasNext()) {
-                        textUserInput += userInput.nextLine();
-                    }
+                    String textUserInput = userInput.readLine();
+                    
 	            System.out.print("Please enter the pattern you want to search for: ");
 	            String userPatternInput = userPattern.nextLine();
 
