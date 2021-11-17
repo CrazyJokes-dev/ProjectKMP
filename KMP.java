@@ -74,57 +74,64 @@ public class KMP {
 	    public static void main(String args[]) {
 	        Scanner input = new Scanner(System.in);
 	        
-	       
 	        String fileName;
-	        
-	        
 	        String pat;
-	        
+	        String option;
 	        do {
-	        try {
-	        	System.out.print("Please enter the file name: ");
-	        	fileName = input.nextLine();
+	        System.out.print("Enter 'file' if you want to read from file and enter 'user' if you want to read from console: ");
+	        option = input.nextLine();
+	        if(option.equalsIgnoreCase("file")) {
 	        	
-	        	System.out.print("What pattern are you looking for: ");
-	        	pat = input.nextLine();
+	        	try {
+		        	System.out.print("Please enter the file name: ");
+		        	fileName = input.nextLine();
+		        	
+		        	System.out.print("What pattern are you looking for: ");
+		        	pat = input.nextLine();
+		        	
+		            File myObj = new File(fileName);
+		            Scanner myReader = new Scanner(myObj);
+		            
+		            String txt = "";
+		            while (myReader.hasNextLine()) {
+		              txt += myReader.nextLine();
+		            }
+		            
+		            
+		            System.out.println("\nText and pattern 1: " + txt + " : " + pat);
+			        new KMP().KMPSearch(pat, txt);
+		            
+		            myReader.close();
+		         } catch (FileNotFoundException e) {
+		            System.out.println("File not found. Please enter the correct file");
+		            e.printStackTrace();
+		         }  
+		        
+		        
+	        } else if(option.equalsIgnoreCase("user")) {
 	        	
-	            File myObj = new File(fileName);
-	            Scanner myReader = new Scanner(myObj);
+	        	//user input
+	            Scanner userInput = new Scanner(System.in);
+	            Scanner userPattern = new Scanner(System.in);
+
+	            System.out.print("Please enter text that you would like to search: ");
+	            String textUserInput = userInput.nextLine();
+
+	            System.out.print("Please enter the pattern you want to search for: ");
+	            String userPatternInput = userPattern.nextLine();
+
+	            new KMP().KMPSearch(userPatternInput, textUserInput);
 	            
-	            String txt = "";
-	            while (myReader.hasNextLine()) {
-	              txt += myReader.nextLine();
-	            }
-	            
-	            
-	            System.out.println("\nText and pattern 1: " + txt + " : " + pat);
-		        new KMP().KMPSearch(pat, txt);
-	            
-	            myReader.close();
-	         } catch (FileNotFoundException e) {
-	            System.out.println("File not found. Please enter the correct file");
-	            e.printStackTrace();
-	         }  
+	        }
 	        
 	        System.out.print("Would you like to continue: ");
-	        if(input.next().equalsIgnoreCase("yes"))
+	        if(input.nextLine().equalsIgnoreCase("yes"))
 	        	repeat = true;
 	        else
 	        	repeat = false;
 	        
 	        }while(repeat == true);
 	    	
-	//user input
-        Scanner userInput = new Scanner(System.in);
-        Scanner userPattern = new Scanner(System.in);
-
-        System.out.print("Please enter text that you would like to search: ");
-        String textUserInput = userInput.nextLine();
-
-        System.out.print("Please enter the pattern you want to search for: ");
-        String userPatternInput = userPattern.nextLine();
-
-        new KMP().KMPSearch(userPatternInput, textUserInput);
 //	    	String txt = "XXYXXXY";
 //	        String pat = "XXX";
 //	        String txt2 = "ACDOQVWRQVWSTUV";
