@@ -115,8 +115,10 @@ public class KMP {
 	            Scanner userPattern = new Scanner(System.in);
 
 	            System.out.print("Please enter text that you would like to search: ");
-	            String textUserInput = userInput.nextLine();
-
+                    String textUserInput = " ";
+                    while(userInput.hasNext()) {
+                        textUserInput += userInput.nextLine();
+                    }
 	            System.out.print("Please enter the pattern you want to search for: ");
 	            String userPatternInput = userPattern.nextLine();
 
