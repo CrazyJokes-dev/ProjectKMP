@@ -132,13 +132,13 @@ public class KMP {
 	        
 	        }while(repeat == true);
 	    	
-//	    	String txt = "XXYXXXY";
-//	        String pat = "XXX";
+//	    	String txt1 = "XXYXXXY";
+//	        String pat1 = "XXX";
 //	        String txt2 = "ACDOQVWRQVWSTUV";
 //	        String pat2 = "QVWS";
 //
-//	        System.out.println("Text and pattern 1: " + txt + " : " + pat);
-//	        new KMP().KMPSearch(pat, txt);
+//	        System.out.println("Text and pattern 1: " + txt1 + " : " + pat1);
+//	        new KMP().KMPSearch(pat1, txt1);
 //
 //	        System.out.println("Text and pattern 2: " + txt2 + " : " + pat2);
 //	        new KMP().KMPSearch(pat2,txt2);
