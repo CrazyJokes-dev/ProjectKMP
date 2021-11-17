@@ -10,7 +10,7 @@ public class KMP {
 	    {
 	        int M = pat.length();
 	        int N = txt.length();
-	        int LPS[] = new int[M];
+	        int[] LPS = new int[M];
 
 	        computeLPSArray(pat, M, LPS);
 
@@ -55,14 +55,9 @@ public class KMP {
 	            }
 	            else // (pat[i] != pat[len])
 	            {
-	                // This is tricky. Consider the example.
-	                // AAACAAAA and i = 7. The idea is similar
-	                // to search step.
 	                if (len != 0) {
 	                    len = LPS[len - 1];
 
-	                    // Also, note that we do not increment
-	                    // i here
 	                }
 	                else // if (len == 0)
 	                {
@@ -119,7 +114,17 @@ public class KMP {
 	        
 	        }while(repeat == true);
 	    	
-	    	
+	//user input
+        Scanner userInput = new Scanner(System.in);
+        Scanner userPattern = new Scanner(System.in);
+
+        System.out.print("Please enter text that you would like to search: ");
+        String textUserInput = userInput.nextLine();
+
+        System.out.print("Please enter the pattern you want to search for: ");
+        String userPatternInput = userPattern.nextLine();
+
+        new KMP().KMPSearch(userPatternInput, textUserInput);
 //	    	String txt = "XXYXXXY";
 //	        String pat = "XXX";
 //	        String txt2 = "ACDOQVWRQVWSTUV";
